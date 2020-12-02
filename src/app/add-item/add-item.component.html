@@ -1,0 +1,34 @@
+<form (ngSubmit)="onSubmit()" #itemForm="ngForm">
+  <div class="form-group">
+    <label for="name">Item name</label>
+    <input type="text" id="name"
+           required
+           [(ngModel)]="item.name" name="name"
+           #newitem="ngModel">
+    <div [hidden]="newitem.valid || newitem.pristine">
+    </div>
+    <label for="description">Description</label>
+    <input type="text" maxlength="255" id="description"
+           required
+           [(ngModel)]="item.description" name="description"
+           #newdescription="ngModel">
+    <div [hidden]="newdescription.valid || newdescription.pristine">
+    </div>
+    <label for="price">Price</label>
+    <input input type="number" min="0.01" step="any" id="price"
+           required
+           [(ngModel)]="item.price" name="price"
+           #newprice="ngModel">
+    <div [hidden]="newprice.valid || newprice.pristine">
+    </div>
+    <label for="stockAmount">Stock amount</label>
+    <input input type="number" min="1" id="stockAmount"
+           required
+           [(ngModel)]="item.stockAmount" name="stockAmount"
+           #newstockAmount="ngModel">
+    <div [hidden]="newstockAmount.valid || newstockAmount.pristine">
+    </div>
+  </div>
+  <button type="submit">Add new item</button>
+</form>
+
