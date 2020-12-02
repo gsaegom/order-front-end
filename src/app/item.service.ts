@@ -99,11 +99,10 @@ export class ItemService {
   /** PUT: update the item on the server */
   updateItem(item: Item | undefined): Observable<any> {
     return this.http.put(this.itemsUrl, item, this.httpOptions).pipe(
-      tap(_ => this.log(`updated item id={item.id}`)),
+      tap(_ => this.log(`updated item id=${item.id}`)),
       catchError(this.handleError<any>('updateItem'))
     );
   }
-
   // tslint:disable-next-line:typedef
   private handleError<T>(operation = 'operation', result?: T) {
     return (error: any): Observable<T> => {

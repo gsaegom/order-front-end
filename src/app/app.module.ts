@@ -11,7 +11,8 @@ import {FormsModule} from '@angular/forms';
 import {ItemSearchComponent} from './item-search/item-search.component';
 import {MessagesComponent} from './messages/messages.component';
 import {ItemDetailComponent} from './item-detail/item-detail.component';
-import { AddItemComponent } from './add-item/add-item.component';
+import { ItemAddComponent } from './item-add/item-add.component';
+import { ItemUpdateComponent } from './item-update/item-update.component';
 
 
 
@@ -22,7 +23,8 @@ import { AddItemComponent } from './add-item/add-item.component';
     ItemSearchComponent,
     MessagesComponent,
     ItemDetailComponent,
-    AddItemComponent,
+    ItemAddComponent,
+    ItemUpdateComponent,
   ],
   imports: [
     BrowserModule,

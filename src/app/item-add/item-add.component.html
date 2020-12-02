@@ -28,12 +28,14 @@
            #newprice="ngModel">
     <div [hidden]="newprice.valid || newprice.pristine">
     </div>
-    <label for="stockAmount">Stock amount</label>
-    <input input type="number" min="1" id="stockAmount"
-           required
-           [(ngModel)]="item.amountOfStock" name="amountOfStock"
-           #newamountOfStock="ngModel">
-    <div [hidden]="newamountOfStock.valid || newamountOfStock.pristine">
+    <div>
+      <label for="stockAmount">Stock amount</label>
+      <input input type="number" min="1" id="stockAmount"
+             required
+             [(ngModel)]="item.amountOfStock" name="amountOfStock"
+             #newamountOfStock="ngModel">
+      <div [hidden]="newamountOfStock.valid || newamountOfStock.pristine">
+      </div>
     </div>
   </div>
   <button type="submit">Add new item</button>

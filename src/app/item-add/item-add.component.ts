@@ -5,11 +5,11 @@ import {CreateItem} from '../create-item';
 import {StockUrgency} from '../stockUrgency';
 
 @Component({
-  selector: 'app-add-item',
-  templateUrl: './add-item.component.html',
-  styleUrls: ['./add-item.component.css']
+  selector: 'app-item-add',
+  templateUrl: './item-add.component.html',
+  styleUrls: ['./item-add.component.css']
 })
-export class AddItemComponent {
+export class ItemAddComponent {
   item: CreateItem;
 
   constructor(

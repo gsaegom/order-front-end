@@ -11,7 +11,7 @@ import {ItemService} from '../item.service';
   styleUrls: ['./item-detail.component.css']
 })
 export class ItemDetailComponent implements OnInit {
-  item!: Item | undefined;
+  item: Item | undefined;
 
   constructor(
     private route: ActivatedRoute,
