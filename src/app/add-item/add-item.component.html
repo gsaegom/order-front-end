@@ -7,12 +7,19 @@
            #newitem="ngModel">
     <div [hidden]="newitem.valid || newitem.pristine">
     </div>
-    <label for="description">Description</label>
-    <input type="text" maxlength="255" id="description"
-           required
-           [(ngModel)]="item.description" name="description"
-           #newdescription="ngModel">
-    <div [hidden]="newdescription.valid || newdescription.pristine">
+    <div>
+      <label for="description">Description</label>
+      <input type="text" maxlength="255" id="description"
+             required
+             [(ngModel)]="item.description" name="description"
+             #newdescription="ngModel"
+             (ngModelChange)="onModelChange($event)"
+             [attr.maxlength]="counter ? maxNumberOfCharacters : ''">
+      <div>
+        {{numberOfCharacters}} / {{maxNumberOfCharacters}}
+      </div>
+      <div [hidden]="newdescription.valid || newdescription.pristine">
+      </div>
     </div>
     <label for="price">Price</label>
     <input input type="number" min="0.01" step="any" id="price"
@@ -24,11 +31,12 @@
     <label for="stockAmount">Stock amount</label>
     <input input type="number" min="1" id="stockAmount"
            required
-           [(ngModel)]="item.stockAmount" name="stockAmount"
-           #newstockAmount="ngModel">
-    <div [hidden]="newstockAmount.valid || newstockAmount.pristine">
+           [(ngModel)]="item.amountOfStock" name="amountOfStock"
+           #newamountOfStock="ngModel">
+    <div [hidden]="newamountOfStock.valid || newamountOfStock.pristine">
     </div>
   </div>
   <button type="submit">Add new item</button>
+  <button type="button" (click)="gotoItemList()">Cancel</button>
 </form>
 

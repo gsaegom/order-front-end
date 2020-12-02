@@ -1,9 +1,10 @@
 import {StockUrgency} from './stockUrgency';
 
 export class CreateItem {
+  id: string;
   name: string;
   description: string;
   price: number;
-  stockAmount: number;
-  stockUrgency: string;
+  amountOfStock: number;
+  stockUrgency: StockUrgency;
 }

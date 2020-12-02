@@ -1,11 +1,30 @@
 <div *ngIf="item">
   <h2>{{item.name | uppercase}} Details</h2>
-  <div><span>id: </span>{{item.id}}</div>
+  <div><span>Item </span>{{item.id}}</div>
+  <div><span>Name </span>{{item.name}}</div>
+  <div><span>Description </span>{{item.description}}</div>
+  <div><span>Price </span>{{item.price}}</div>
+  <div><span>Amount of Stock </span>{{item.amountOfStock}}</div>
   <div>
-    <label>name:
+    <label>Name
       <input [(ngModel)]="item.name" placeholder="name"/>
     </label>
   </div>
-  <button (click)="goBack()">go back</button>
+  <div>
+    <label>Description
+      <input [(ngModel)]="item.description" placeholder="description"/>
+    </label>
+  </div>
+  <div>
+    <label>Price
+      <input [(ngModel)]="item.price" placeholder="price"/>
+    </label>
+  </div>
+  <div>
+    <label>Amount of Stock
+      <input [(ngModel)]="item.amountOfStock" placeholder="amountOfStock"/>
+    </label>
+  </div>
+  <button (click)="goBack()">Back</button>
   <button (click)="save()">save</button>
 </div>

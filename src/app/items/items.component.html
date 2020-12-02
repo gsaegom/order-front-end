@@ -4,28 +4,19 @@
     <td>{{ item.name }}</td>
     <td>{{ item.price }}</td>
     <td>{{ item.stockUrgency }}</td>
+    <td>
+      <button type="button" a routerLink="/detail/{{item.id}}">
+        Details
+      </button>
+    </td>
   </tr>
   </tbody>
 </table>
-<h2>My Items</h2>
-
-<div>
-  <label>Item name:
-    <input #itemName />
-  </label>
-  <!-- (click) passes input value to add() and then clears the input -->
-  <button (click)="add(itemName.value); itemName.value=''">
-    add
-  </button>
-</div>
-
-<ul class="items">
-  <li *ngFor="let item of items">
-    <a routerLink="/items/{{item.id}}">
-      <span class="badge">{{item.id}}</span> {{item.name}}
-    </a>
-    <button class="delete" title="delete hero"
-            (click)="delete(item)">x</button>
-  </li>
-</ul>
 <app-item-search></app-item-search>
+
+
+<!--<li *ngFor="let item of items$ | async" >-->
+<!--  <a routerLink="/detail/{{item.id}}">-->
+<!--    {{item.name}}-->
+<!--  </a>-->
+<!--</li>-->

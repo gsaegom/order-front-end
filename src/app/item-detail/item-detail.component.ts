@@ -25,8 +25,7 @@ export class ItemDetailComponent implements OnInit {
   }
 
   getItem(): void {
-    // tslint:disable-next-line:no-non-null-assertion
-    const id = +this.route.snapshot.paramMap.get('id')!;
+    const id = this.route.snapshot.paramMap.get('id');
     this.itemService.getItem(id)
       .subscribe(item => this.item = item);
   }

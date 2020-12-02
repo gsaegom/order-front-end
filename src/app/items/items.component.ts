@@ -1,6 +1,8 @@
 import {Component, OnInit} from '@angular/core';
 import {Item} from '../item';
 import {ItemService} from '../item.service';
+import {CreateItem} from '../create-item';
+import {Observable} from 'rxjs';
 
 @Component({
   selector: 'app-items',
@@ -9,7 +11,7 @@ import {ItemService} from '../item.service';
 })
 export class ItemsComponent implements OnInit {
   public items: Item[] = [];
-
+  items$: Observable<Item[]> | undefined;
   constructor(private itemService: ItemService) {
   }
 
@@ -28,7 +30,7 @@ export class ItemsComponent implements OnInit {
     if (!name) {
       return;
     }
-    this.itemService.addItem({name} as Item)
+    this.itemService.addItem({name} as CreateItem)
       .subscribe(item => {
         this.items.push(item);
       });

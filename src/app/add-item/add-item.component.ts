@@ -1,4 +1,4 @@
-import {Component} from '@angular/core';
+import {Component, Input} from '@angular/core';
 import {ActivatedRoute, Router} from '@angular/router';
 import {ItemService} from '../item.service';
 import {CreateItem} from '../create-item';
@@ -25,7 +25,21 @@ export class AddItemComponent {
     );
   }
 
+
   gotoItemList(): void {
     this.router.navigate(['/items']);
+  }
+
+  @Input()
+  maxNumberOfCharacters = 255;
+  counter = true;
+
+  numberOfCharacters = 0;
+  interaction = {
+    textValue: ''
+  };
+
+  onModelChange(textValue: string): void {
+    this.numberOfCharacters = textValue.length;
   }
 }

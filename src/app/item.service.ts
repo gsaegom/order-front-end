@@ -48,7 +48,7 @@ export class ItemService {
       );
   }
 
-  getItem(id: UUID): Observable<Item> {
+  getItem(id: string | null): Observable<Item> {
     const url = `${this.itemsUrl}/${id}`;
     return this.http.get<Item>(url).pipe(
       tap(_ => this.log(`fetched item id=${id}`)),
@@ -84,16 +84,6 @@ export class ItemService {
       tap((newItem: CreateItem) => this.log(`added item w/ name=${newItem.name}`)),
       catchError(this.handleError<CreateItem>('addItem'))
     );
-  }
-
-  defineStockUrgency(item: CreateItem): void {
-    if (item.stockAmount < 5) {
-      item.stockUrgency = StockUrgency.Low;
-    } else if (item.stockAmount < 10) {
-      item.stockUrgency = StockUrgency.Medium;
-    } else {
-      item.stockUrgency = StockUrgency.High;
-    }
   }
 
   deleteItem(item: Item | string): Observable<Item> {
